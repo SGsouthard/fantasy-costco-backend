@@ -1,5 +1,8 @@
 const express = require("express");
-// const { Season } = require("./models");
+const { Weapon } = require("./models");
+const { Armor } = require("./models");
+const { AdventureGear } = require("./models");
+const { MagicItem } = require("./models");
 const app = express();
 
 app.use((req, res, next) => {
@@ -12,10 +15,46 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.get("/seasons", async (request, response) => {
+app.get("/", async (request, response) => {
   try {
-    const seasonArray = await Season.find({});
-    response.json({ seasonArray });
+    const statement = "check /weapons, /armor, /adventuregear, /magicitem";
+    response.json({ statement });
+  } catch (error) {
+    response.status(500).send(error);
+  }
+});
+
+app.get("/weapons", async (request, response) => {
+  try {
+    const weaponArray = await Weapon.find({});
+    response.json({ weaponArray });
+  } catch (error) {
+    response.status(500).send(error);
+  }
+});
+
+app.get("/armor", async (request, response) => {
+  try {
+    const armorArray = await Armor.find({});
+    response.json({ armorArray });
+  } catch (error) {
+    response.status(500).send(error);
+  }
+});
+
+app.get("/adventuregear", async (request, response) => {
+  try {
+    const adventureGearArray = await AdventureGear.find({});
+    response.json({ adventureGearArray });
+  } catch (error) {
+    response.status(500).send(error);
+  }
+});
+
+app.get("/magicitem", async (request, response) => {
+  try {
+    const magicItemArray = await MagicItem.find({});
+    response.json({ magicItemArray });
   } catch (error) {
     response.status(500).send(error);
   }

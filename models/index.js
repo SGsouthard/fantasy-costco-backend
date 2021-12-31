@@ -20,3 +20,10 @@ db.once("open", () => {
 db.on("error", () => {
     console.log(`MongoDB Error`);
 });
+
+module.exports = {
+    Weapon: require("./weapon"),
+    Armor: require("./armor"),
+    AdventureGear: require("./adventureGear"),
+    MagicItem: require("./magicItems")
+};

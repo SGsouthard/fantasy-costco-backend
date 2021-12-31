@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const { INTEGER } = require('sequelize/dist');
 
 const weaponSchema = new mongoose.Schema({
-    name: Text,
-    description: Text,
+    name: String,
+    description: String,
     cost: {
-        amount: INTEGER,
-        coins: Text
+        amount: Number,
+        coins: String
     },
     stats: {
-        damageType: Text,
-        diceAmount: Text
+        damageType: String,
+        diceAmount: String
     },
 });
 
